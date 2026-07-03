@@ -4,7 +4,8 @@ function greet(name: string):string{
 const userName = 'Aritro Mazumdar Apon';
 // console.log(greet(userName));
 
-// union type
+//! union type----------------------------------------->
+// *----------------------------------------------------------
 let subs : number | string = 1;
 subs = '2M';
 
@@ -57,5 +58,19 @@ function welcomeUser(user: string | string[]){
 // console.log(welcomeUser(['Aritro','Apon']));
 
 //todo: Problem 3 :
+type massageType = string | {
+    text: string,
+    code: number,
+}
 
+function showAlert(massage : massageType){
+       if(typeof massage === 'string'){
+        return `Alert : ${massage}`;
+       }else if('code' in massage){
+        return `Error ${massage.code} : ${massage.text}`;
+       }
+}
+
+// console.log(showAlert("Your session is expiring!"));
+// console.log(showAlert({ text: "Page Not Found", code: 404 }));
 
