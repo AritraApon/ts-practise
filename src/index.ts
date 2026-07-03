@@ -58,19 +58,66 @@ function welcomeUser(user: string | string[]){
 // console.log(welcomeUser(['Aritro','Apon']));
 
 //todo: Problem 3 :
-type massageType = string | {
+type messageType = string | {
     text: string,
     code: number,
 }
 
-function showAlert(massage : massageType){
-       if(typeof massage === 'string'){
-        return `Alert : ${massage}`;
-       }else if('code' in massage){
-        return `Error ${massage.code} : ${massage.text}`;
+function showAlert(message : messageType){
+       if(typeof message === 'string'){
+        return `Alert : ${message}`;
+       }else if('code' in message){
+        return `Error ${message.code} : ${message.text}`;
        }
 }
 
 // console.log(showAlert("Your session is expiring!"));
 // console.log(showAlert({ text: "Page Not Found", code: 404 }));
 
+type User =
+  | {
+      role: "admin";
+      permissions: string[];
+    }
+  | {
+      role: "user";
+      email: string;
+    };
+
+function getUserInfo(user: User) {
+  // todo admin হলে permissions return করবে
+  // todo user হলে email return করবে
+  if(user.role === 'admin'){
+    return `${user.permissions}`;
+  }
+  else{
+    return user.email;
+  }
+
+}
+// console.log(getUserInfo({role:'admin',permissions: ['read','write']}));
+
+type Shape =
+  | {
+      type: "circle";
+      radius: number;
+    }
+  | {
+      type: "rectangle";
+      width: number;
+      height: number;
+    };
+
+function getArea(shape: Shape) {
+  //todo circle হলে π × r²
+  //todo rectangle হলে width × height
+
+  if(shape.type === 'circle'){
+    return Math.PI * shape.radius**2
+  }
+  else{
+    return shape.width * shape.height
+  }
+
+
+}
