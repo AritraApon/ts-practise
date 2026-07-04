@@ -121,3 +121,79 @@ function getArea(shape: Shape) {
 
 
 }
+
+
+
+
+// *----------------------------------------------------------------
+//! ----------------Type Assertion-----------------------------------
+//* --------------------------------------------------------------
+
+// todo:problem 01
+
+type userRole ={
+  role: 'admin',
+  id: number
+}
+
+let unknownUser: unknown = {
+  role: 'admin',
+  id: 1
+} as userRole ;
+
+let adminUser = unknownUser as userRole
+// console.log(adminUser);
+
+
+//todo : Problem 02 Try-Catch
+
+const processPayment = () =>{
+  try {
+    // payment processing
+    throw new Error('Stripe Payment Failed!')
+  } catch (error) {
+
+   if(error instanceof Error){
+    console.log('Error massage ', error.message)
+   }else{
+    console.log('Something Wrong' , error)
+   }
+
+  }
+}
+
+// console.log(processPayment())
+
+// todo: Problem 03 => Void and Never
+
+const showWelcomeMessage =(name : string):void =>{
+       console.log(`Welcome back ${name}`)
+}
+
+showWelcomeMessage('Apon')
+
+const showSecurityAlert = (msg: string): never =>{
+  throw new Error(`CRITICAL: ${msg}`);
+}
+
+// todo: Problem 04 =>Exhaustiveness Checking
+
+type NotificationType = "sms" | "email" |'call' ;
+
+function sendNotification(type: NotificationType) {
+    switch (type) {
+        case "sms":
+            console.log("Sending SMS...");
+            break;
+        case "email":
+            console.log("Sending Email...");
+            break;
+          case 'call':
+            console.log('Calling ........');
+            break
+        default:
+        const check : never = type;
+        throw new Error(`${check}`)
+
+    }
+}
