@@ -4,8 +4,12 @@ function greet(name: string):string{
 const userName = 'Aritro Mazumdar Apon';
 // console.log(greet(userName));
 
+
+// *----------------------------------------------------------
 //! union type----------------------------------------->
 // *----------------------------------------------------------
+
+
 let subs : number | string = 1;
 subs = '2M';
 
@@ -30,9 +34,10 @@ for(let order of orders){
 // console.log(currentOrder);
 
 
-
+//* ---------------------------------------------------------------
 //!type Narrowing ---------------------------------------->
 //* ---------------------------------------------------------------
+
 //todo: problem 01
 function formatePrice(price:number | string){
     if (typeof price === 'number'){
@@ -127,7 +132,7 @@ function getArea(shape: Shape) {
 
 // *----------------------------------------------------------------
 //! ----------------Type Assertion-----------------------------------
-//* --------------------------------------------------------------
+//* ----------------------------------------------------------------
 
 // todo:problem 01
 
@@ -170,13 +175,13 @@ const showWelcomeMessage =(name : string):void =>{
        console.log(`Welcome back ${name}`)
 }
 
-showWelcomeMessage('Apon')
+showWelcomeMessage('Ha ha')
 
 const showSecurityAlert = (msg: string): never =>{
   throw new Error(`CRITICAL: ${msg}`);
 }
 
-// todo: Problem 04 =>Exhaustiveness Checking
+// todo: Problem 04 => Exhaustiveness Checking
 
 type NotificationType = "sms" | "email" |'call' ;
 
@@ -197,3 +202,7 @@ function sendNotification(type: NotificationType) {
 
     }
 }
+
+// sendNotification('call')
+
+
