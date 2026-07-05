@@ -1,5 +1,6 @@
-// Interface and optional (?) | readOnly
+//! Interface and optional (?) | readOnly |literal Types | Intersection
 
+//todo problem - 01 Interface and optional (?) | readOnly
 interface Doctor {
     readonly id: string,
     name: string,
@@ -8,8 +9,30 @@ interface Doctor {
 
 const doctor: Doctor = {
     id: '123',
-    name: 'Apon',
+    name: 'Hello',
     // chamberLocation: 'Dhaka'
 }
 
-console.log(doctor);
+
+// console.log(doctor);
+
+//todo problem - 02 Literal Types
+
+type PaymentMethod = 'stripe' | 'bkash' | 'nagad';
+
+let pay: PaymentMethod = 'stripe';
+
+// console.log(pay)
+
+
+// todo : problem - 03 Intersection
+
+type BaseTicket = {
+    id:string,
+    price: number,
+}
+
+type tickerDetails = {
+    ticketName:string,
+
+}
